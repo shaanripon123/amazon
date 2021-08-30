@@ -1,16 +1,17 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import './Products.css';
 
 const Products = (props) => {
-    //console.log(props);
-    const {img,name,seller,price,stock} = props.products;
+    console.log(props.products.key);
+    const {img,name,seller,price,stock,key} = props.products;
     return (
        <div className="products">
             <div>
            <img src={img} alt="" />
         </div>
         <div>
-        <h4 className="product-name">{name}</h4>
+        <h4 className="product-name"><Link to={"/product/"+key}>{name}</Link></h4>
         <p><small>By {seller}</small></p>
         <p>${price}</p>
         <p><small>Only {stock} in slock-order soon</small></p>
